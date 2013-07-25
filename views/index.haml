@@ -4,5 +4,12 @@
   %form{action: "/", method:"POST"}
     %textarea{name: "text", value: "Copy and paste text here."}
     %input{type: "submit", value: "Submit"}
-  #result
-    = @results
+  %table#result{border: "1"}
+    %tr
+      %th Words
+      %th Count
+    - Array(@results).each do |result|
+      %tr
+        %td= result.word
+        %td= result.count
+= @debug
