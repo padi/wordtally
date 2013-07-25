@@ -1,18 +1,15 @@
 require 'sinatra'
 require 'ostruct'
+require 'word_bunny'
 
 get '/' do
-  @results = [OpenStruct.new(word: 'example', count: 1),
-              OpenStruct.new(word: 'another', count: 1)]
+  @results = Array(@results)
   haml :index, format: :html5
 end
 
 post '/' do
-  # TODO:
-  # - should feed text into TalliesWords
-  # - replace results into actual results :P
-  @results = [OpenStruct(word: 'example', count: 1),
-              OpenStruct(word: 'another', count: 1)]
+  @results = WordBunny::TalliesWords.execute(params['text'])
+  @results.map! {|arr| OpenStruct.new(word: arr[0], count: arr[1])}
   @debug = params['text']
   haml :index, format: :html5
 end
