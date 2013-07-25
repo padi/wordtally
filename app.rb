@@ -3,13 +3,19 @@ require 'ostruct'
 require 'word_bunny'
 
 get '/' do
-  @results = Array(@results)
+  @sample_text_title = "Example: President Aquino's State of the Nation Address 2013"
+  speech = File.read('./SONA2013.txt')
+  @results = tally! speech
   haml :index, format: :html5
 end
 
 post '/' do
-  @results = WordBunny::TalliesWords.execute(params['text'])
-  @results.map! {|arr| OpenStruct.new(word: arr[0], count: arr[1])}
+  @results = tally! params['text']
   @debug = params['text']
   haml :index, format: :html5
+end
+
+def tally! text
+  results = WordBunny::TalliesWords.execute(text)
+  results.map! {|arr| OpenStruct.new(word: arr[0], count: arr[1])}
 end

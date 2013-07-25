@@ -5,6 +5,7 @@
     %textarea{name: "text", placeholder: "Copy and paste text here."}
     %input{type: "submit", value: "Submit"}
   - if @results.any?
+    %h2= @sample_text_title
     %table#result{border: "1"}
       %tr
         %th Words
