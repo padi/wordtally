@@ -2,6 +2,9 @@ source :rubygems
 
 gem 'sinatra', '~> 1.4.3'
 gem 'haml'
-# TODO: only include this in dev environment
-gem 'pry'
-gem 'word_bunny'
+
+gem 'word_bunny', '~> 0.0.2'
+
+group :development, :test do
+  gem 'pry', '~> 0.9.12.2'
+end
