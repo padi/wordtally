@@ -1,0 +1,8 @@
+!!!
+%h1 Word Counter
+#content
+  %form{action: "/", method:"POST"}
+    %textarea{name: "text", value: "Copy and paste text here."}
+    %input{type: "submit", value: "Submit"}
+  #result
+    = @results
