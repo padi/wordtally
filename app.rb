@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'ostruct'
 require 'word_bunny'
+require 'shotgun'
 
 get '/' do
   @sample_text_title = "Example: President Aquino's State of the Nation Address 2013"
