@@ -1,0 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
+@import url(http://fonts.googleapis.com/css?family=Pathway+Gothic+One);
+
+#logo{
+	margin: .7em auto 0;
+	font-family: "Happy Monkey";
+	font-size: 5em;
+}
+
+#sublogo{
+	font-family: "Pathway Gothic One";
+	letter-spacing: 1.2em;
+	margin-left: 19px;
+}
+
