@@ -1,18 +1,68 @@
-!!!
-%h1 Word Tally!
-#content
-  %form{action: "/", method:"POST"}
-    %textarea{name: "text", placeholder: "Copy and paste text here."}
-    %input{type: "submit", value: "Submit"}
-  - if @results.any?
-    %h2= @sample_text_title
-    %table#result{border: "1"}
-      %tr
-        %th Words
-        %th Count
-      - @results.each do |result|
-        %tr
-          %td= result.word
-          %td= result.count
-= @debug
+<!doctype html>
+%html{:lang => "en"} 
+%head 
+  %meta{:charset => "UTF-8"}/ 
+  %title Word Tally - Count your words in seconds.
+  %link{:rel => "stylesheet", :href => "/css/style.css"}/ 
+%body
+  .heading
+    .container
+      .row
+        .span12
+          .header
+            %h1#logo Word Tally
+            %h4#sublogo COUNT ME IN
 
+  #master
+    .container
+      .row           
+        .span6
+          %form{action: "/", method:"POST"}
+            %textarea.giant-form{name: "text", placeholder: "Copy and paste text here."}
+            %input.btn.btn-large.btn-count{type: "submit", value: "Count it now!"}
+          .docs  
+            %h1 Lorem Ipsum
+            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis lacinia metus adipiscing condimentum. Phasellus tempus eget turpis non pulvinar. Praesent ullamcorper orci at adipiscing faucibus. Donec neque nisl, tincidunt quis turpis suscipit, fermentum sollicitudin leo. Vivamus posuere nibh semper mauris sollicitudin posuere quis in sapien. Nunc auctor vitae massa sed rutrum. Aliquam in mi diam. Praesent pellentesque ligula tellus, et tempor enim egestas quis. Donec a cursus nibh. Nullam molestie ullamcorper nunc a varius. Donec scelerisque orci quis ornare rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eget mattis dui, eget dapibus leo. Praesent et metus in nisi lobortis dictum sit amet sed nunc.
+            %div
+              %input{type: "text", name: "s", placeholder: "Search", style: "margin: 0;"}
+              %a.btn.btn-primary.btn-search{:href => "#"} Search
+
+        .span6.text-center
+          - if @results.any?
+            %p= @sample_text_title
+            %ul#results
+              - @results.each do |result|
+                %li{ id: "item-#{result.word}"}
+                  .content 
+                    .word
+                      %p= result.word
+                    %h3.count= result.count
+                
+
+        -# = @debug
+
+    %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+    %script{src: "js/bootstrap.js"}
+    :javascript
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > 540){
+          $('.docs').addClass('fixed');
+        }
+        else{
+          $('.docs').removeClass('fixed'); 
+        }
+
+      });
+    
+      $(document).click(function() {
+
+        
+        search = String($( "input[name='s']" ).val());
+        search = "#item-" + search;
+        $(".btn-search").attr("href", search);
+        $('html, body').animate({
+            scrollTop: $(search).offset().top
+        }, 500);
+        return false;
+
+      });

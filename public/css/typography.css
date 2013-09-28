@@ -1,0 +1,17 @@
+@import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
+@import url(http://fonts.googleapis.com/css?family=Pathway+Gothic+One);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
+
+#logo{
+    margin: .7em auto 0;
+    font-family: "Raleway";
+    font-size: 5em;
+}
+
+#sublogo{
+    font-family: "Raleway";
+    letter-spacing: 10px;
+    margin-left: 12px;
+    font-weight: 100;
+}
+
