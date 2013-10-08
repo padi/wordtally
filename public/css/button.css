@@ -1,0 +1,17 @@
+form .btn-count{
+	width: 105%;
+	height: 81px;
+	margin: 0;
+	font-size: 2.0em;
+	border: 1px solid ##006D5C;
+	border-radius: 0;
+	background: #03AD93;
+	color: #fff;
+	text-shadow: 0px -1px 0px rgba(0, 202, 162, 1), 0px 1px 1px rgba(0, 122, 98, 1);
+	
+}
+
+form .btn-count:hover, form .btn-count:active{
+	color: #006D5C;
+	background: #00A58B;
+}
