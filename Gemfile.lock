@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     coderay (1.0.9)
     haml (4.0.3)
@@ -12,6 +12,8 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -26,5 +28,6 @@ PLATFORMS
 DEPENDENCIES
   haml
   pry (~> 0.9.12.2)
+  shotgun (~> 0.9)
   sinatra (~> 1.4.3)
   word_bunny (~> 0.0.2)
