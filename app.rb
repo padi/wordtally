@@ -18,7 +18,7 @@ end
 
 post '/' do
   @results = tally! params['text']
-  @debug = params['text']
+  @speech = params['text']
   haml :index, format: :html5
 end
 

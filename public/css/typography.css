@@ -15,3 +15,10 @@
     font-weight: 100;
 }
 
+.row form {
+  margin-top: 1.5rem;
+}
+
+.row h1, .row h2, .row h3 {
+  margin-top: 1.5rem;
+}

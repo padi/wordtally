@@ -13,7 +13,8 @@ http://wordtally.herokuapp.com
 
 ### Requirements
 
-* ruby 2.0.0
+* ruby 2.4.1
+* bootstrap 4 beta
 
 ### Usage
 
@@ -26,4 +27,7 @@ $ ruby app.rb
 
 # another way to run app
 $ rackup config.ru
+
+# yet another way
+$ bundle exec shotgun
 ```
